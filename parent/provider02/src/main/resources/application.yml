@@ -1,0 +1,28 @@
+server:
+  port: 8002
+
+mybatis:
+  config-location: "classpath:mybatis/mybatis.cfg.xml"        # mybatis配置文件所在路径
+  mapper-locations:
+    - "classpath:mybatis/mapper/**/*.xml"                     # mapper映射文件
+  type-aliases-package: com.liujia.entity            # 别名类所在包
+
+spring:
+  application:
+    name: provider                          #微服务的名字
+  datasource:
+    driver-class-name: org.postgresql.Driver                  # 驱动包
+    type: com.alibaba.druid.pool.DruidDataSource              # 当前数据源操作类型
+    url: jdbc:postgresql://120.79.96.251:5432/hdsc_db                   # 数据库名称
+    username: hdsc_user_cha
+    password: gsYWNfe4
+
+eureka:
+  client:
+    service-url:
+#      defaultZone: http://localhost:9001/eureka
+      defaultZone: http://localhost:9001/eureka/,http://localhost:9002/eureka/,http://localhost:9003/eureka/
+  instance:
+    instance-id: provider02       #显示服务名
+    prefer-ip-address: true       # 显示ip地址
+

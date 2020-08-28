@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liujia.mapper.ChaOrderMapper">
+
+    <select id="getChaOrder" resultType="com.liujia.entity.ChaOrder" parameterType="java.lang.String">
+        select * from cha_order where uuid=#{id}
+    </select>
+
+    <select id="getChaOrders" resultType="com.liujia.entity.ChaOrder">
+    	select * from cha_order
+    </select>
+
+
+</mapper>

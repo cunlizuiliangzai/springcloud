@@ -1,0 +1,20 @@
+server:
+  port: 5001
+
+spring:
+  application:
+    name: zull
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9001/eureka/,http://localhost:9002/eureka/,http://localhost:9003/eureka/
+  instance:
+    instance-id: zull                       #自定义服务名称信息
+    prefer-ip-address: true
+
+zuul:
+  prefix: /qianzui      #前缀
+  ignored-services: provider   #使原服务名不能访问
+  routes:
+    mydept.serviceId: provider  #原服务名
+    mydept.path: /jiaming/**    #假名
